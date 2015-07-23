@@ -1,0 +1,302 @@
+/*
+ * Import nib
+ */
+/*
+ * Grab a custom font from Google
+ */
+@import url("http://fonts.googleapis.com/css?family=Quicksand");
+/*
+ * Nib provides a CSS reset
+ */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+  line-height: 1.8;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
+/*
+ * Store the main color and
+ * background color as variables
+ */
+body {
+  font-family: 'Quicksand';
+  /*background-color: #faf9f0;*/
+  background: url("/images/node-bg.png") repeat scroll 0 55px / 100%;
+  color: #444;
+}
+header {
+  font: 900 65px/1.2 'Quicksand';
+  padding: 40px 0;
+  color: #fff;
+  /*font-size: 65px;
+  font-weight: 900;*/
+  text-align: center;
+/*
+   * Note the use of the `main-color`
+   * variable and the `darken` function
+   */
+  /*background-color: #fa5b4d;*/
+  /*background-image: url("/images/bg2.jpg");*/
+  background: url("/images/bg2.jpg") no-repeat fixed 0 -375px / 100%; 
+  /*background-position: 0 -436px;
+  background-size: 100% auto;*/
+  border-bottom: 1px solid #df1806;
+  text-shadow: 0px -1px 0px #df1806;
+  opacity: 1.01;
+  transition: opacity 0.2s ease-in-out 0s;
+}
+.container {
+  font-family: 'Quicksand';
+  width: 75%;
+  margin: 50px auto;
+  overflow: hidden;
+}
+.main-content {
+  float: left;
+  width: 80%;
+}
+.node-a {
+  font-family: 'Quicksand';
+  color: #444 !important;
+  text-decoration: none;
+}
+.node-a:hover {
+  border-bottom: 1px dotted #ccc;
+}
+.main-content p {
+  font-family: 'Quicksand';
+  margin-bottom: 20px;
+}
+.sidebar {
+  float: right;
+  width: 20%;
+}
+.sidebar .widget {
+/*
+     * Note the lack of vendor
+     * prefixes here. Nib will
+     * add them for us
+     */
+  -webkit-border-radius: 3px;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  background-color: transparent;
+  text-align: center;
+}
+.sidebar .widget h1 {
+  font-family: 'Quicksand';
+  margin: 13px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #ddd;
+  -webkit-border-radius: 2px 2px 0px 0px;
+  border-radius: 2px 2px 0px 0px;
+  margin-bottom: 10px;
+}
+.sidebar .widget p {
+  font-family: 'Quicksand';
+  font-size: 13px;
+  padding: 0px 10px;
+  margin-bottom: 10px;
+}
+.sidebar .node-logo {
+  left: 10px;
+  position: relative;
+  width: 80%;
+}
+p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+#dep-info > h3 {
+  border-bottom: 1px dotted #ccc;
+  display: inline-block;
+  padding: 10px;
+}
+.sub-content h2 {
+  font-family: 'Quicksand';
+  font-size: 30px;
+  margin: 10px 0;
+}
+.sub-content p {
+  font-family: 'Quicksand';
+  line-height: 1.8;
+}
+.sub-content h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.sub-content code {
+  background: #242B37 none repeat scroll 0 0;
+  padding: 5px 10px;
+  color: #fbfbfb;
+  line-height: 1.99;
+}
+.sub-content pre {
+  background: #242B37 none repeat scroll 0 0;
+  padding: 15px 30px;
+  color: #fbfbfb;
+  line-height: 1.8;
+}
+#content-one > h2 {
+  font-size: 40px;
+  line-height: 1.2;
+  padding-bottom: 20px;
+}
+footer {
+  font-family: 'Quicksand';
+  width: 75%;
+  margin: 50px auto;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding-top: 5px;
+  font-size: 13px;
+}
+
+
+@media (min-width: 0px) and (max-width: 767px) {
+  
+.container {
+  overflow: hidden;
+  width: 90%;
+}
+header {
+  background: rgba(0, 0, 0, 0) url("/images/bg2.jpg") no-repeat fixed 0 0 / 100% auto;
+  font: 900 35px/1.2 "Quicksand";
+  padding: 30px 0;
+}
+p {
+  font-size: 10px;
+}
+.sub-content h2 {
+  font-size: 20px;
+}
+#content-one > h2 {
+  font-size: 20px;
+}
+#content-one li {
+  font-size: 10px;
+}
+.sub-content pre {
+  font-size: 10px;
+  padding: 10px;
+}
+.main-content {
+  float: none;
+  width: 100%;
+}
+.sidebar {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+}
+#content-one > h2 {
+  font-size: 30px;
+}
+.sidebar .widget {
+  margin-bottom: 20px;
+  margin-left: 0;
+}
+  
+} 
+
+@media (min-width: 768px) and (max-width: 991px) {
+  header {
+    background-position: 0 -90px;
+    padding: 30px 0;
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  header {
+    padding: 30px 0;
+    font-size: 55px;
+  }
+}
+
