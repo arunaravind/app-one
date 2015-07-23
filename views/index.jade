@@ -1,0 +1,206 @@
+extend layout
+
+block content
+ #content-one
+  h2 Hi Folks, I developed this webpage as a part of walking in to Node.js
+
+  p. 
+    Node.js is an open source, cross-platform runtime environment for server-side and networking applications. Node.js applications are written in JavaScript and can be run within the Node.js runtime on OS X, Microsoft Windows, Linux, FreeBSD, NonStop, IBM AIX, IBM System z and IBM i. Its work is hosted and supported by the Node.js Foundation, a Collaborative Project at Linux Foundation.
+
+  ul
+    li Node.js provides an event-driven architecture and a non-blocking I/O API that optimizes an application's throughput and scalability. These technologies are commonly used for real-time web applications.
+    br
+    li Node.js uses the Google V8 JavaScript engine to execute code, and a large percentage of the basic modules are written in JavaScript. Node.js contains a built-in library to allow applications to act as a Web server without software such as Apache HTTP Server or IIS.
+    br
+    li Node.js is gaining adoption as a server-side platform and is used by IBM, Microsoft, Yahoo!, Walmart, Groupon, SAP, LinkedIn, Rakuten, PayPal, Voxer, and GoDaddy.
+
+block sidebar
+  .widget
+    h1 Node.js
+    img(src="images/js-green-logo.png" class="node-logo")
+  .widget
+    h1 npm
+    img(src="https://www.npmjs.com/static/images/npm-logo.svg" class="node-logo")
+  .widget
+    h1 Express
+    img(src="images/express-logo.png" class="node-logo")
+  .widget
+    h1 Jade
+    img(src="http://jade-lang.com/style/jade-logo-header.svg" class="node-logo")
+     
+block sub-content-one
+    h2 Knowledge Sharing {Command-C + V}
+    p
+     | I have used a package manager called Homebrew for all allied installation.
+     br
+     | To install Homebrew use this (in the terminal):
+     br
+     | <code>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"</code>
+     br
+     | Once installed, you can simply install Nodejs with:
+     br
+     | <code>brew install node</code>
+     br
+     | Installing npm is as easy as
+    p
+     | <code> brew install npm </code>
+    p
+     | To install Express Globally(-g) and Locally
+     br
+     | <code>npm install express -g</code>
+     br
+     | <code>npm install express</code>
+    p
+     | This will create folder called "node_modules" in your root folder
+    br
+    hr
+    br
+    p. 
+      Create a <code>package.json</code> file which will include the Dependencies we will be using for your project
+    h3 Run the package.json file using node commands
+    p. 
+      <code> node package.json </code>
+    p.
+      Terminal code will be like this 
+    p. 
+      <code> User-MacBook-Pro:app-one user$ node package.json </code>
+    p. 
+      This will install the dependenices for your project in your root folder. (package.json will get your dependency installation done easily)
+    br
+    hr
+    br
+    h2 Here's a little info about our dependencies:
+    #dep-info
+       h3 Express
+       p.
+          Express is a web framework, inspired by the Ruby project 'Sinatra'. It's one of many web frameworks in Node, but is the the most popular one , we have to realise that Express is also a framework to be used with node.js at Server Side not at Frontend.
+       h3 Jade
+       p.
+          Jade is a templating engine. It is a language that compiles to HTML. Jade is awesome. It's very clean, and you'll never write a malformed HTML document again! { You'll never have to type angle brackets ever again and am enjoying it alot.. :) }
+       h3 Stylus
+       p.
+          Stylus is a CSS-preprocessor. If you're familiar with LESS or SASS, Stylus does very much the same job (if not, Stylus is a language which compiles down to CSS for the browser.
+       h3 Nib
+       p.
+          Nib is a set of utilities for Stylus. Among other things, it enables going vendor-prefix free.
+       h3 Running with Express.
+       p.
+          Create a File called <code> app.js </code>. we have to call our modules in to the project.
+    br
+    pre.
+        /*
+        * Module dependencies
+        */
+        var express = require('express')
+        , stylus = require('stylus')
+        , nib = require('nib')
+    br
+    p.
+      Next, we want to fire up Express, tell it to use Jade and Stylus, and some other basic functionality:
+    br
+    pre.
+        var app = express()
+        function compile(str, path) {
+          return stylus(str)
+            .set('filename', path)
+            .use(nib())
+        }
+        app.set('views', __dirname + '/views')
+        app.set('view engine', 'jade')
+        app.use(express.logger('dev'))
+        app.use(stylus.middleware(
+          { src: __dirname + '/public'
+          , compile: compile
+          }
+        ))
+        app.use(express.static(__dirname + '/public'))
+    br
+    p.
+      The app.set() directives tell Express that we want to use Jade, and where we will keep our views. On that note, let's create a folder called 'views' in the project root where we will put our Jade files.
+    p.
+      The app.use() calls pass 'middleware' functions for Express to use. Middleware are simply functions that have the signature fn(req, res, next). They take the request object, the response object and next, which will call the next piece of middleware. Express executes them in the order in which they are passed
+    p.
+      The first piece of middleware we apply is the Express logger in 'dev' mode. This will simply log incoming requests to the console. Next, the Stylus middleware is applied, which will compile our .styl files to CSS.
+    p.
+      Finish off app.js with the following code:
+    br
+    pre.
+        app.get('/', function (req, res) {
+          res.end('Hi there!')
+        })
+        app.listen(3000)
+    br
+    p.
+      This creates a 'route', simply a function which takes the request and response object, and sends the plain-text response 'Hi there!'. We then tell the Express application to listen on port 3000.
+    p.
+      If you run <code> node app.js </code> 
+    p. 
+      in the terminal, then navigate to <a href="http://localhost:3000/">http://localhost:3000/</a> in your browser, you should see the plain-text response.
+    p. 
+      You can custom give the port id to listen while you initiate the code to run the app.js like
+    br
+    pre.
+        node app.js -p 8080      
+    p.
+      here we are asking the compiler to push the output to 8080 port
+    h3 Content Creation
+    br
+    pre.
+        doctype
+        html
+          head
+            title #{title} - My Site
+            link(rel='stylesheet', href='/stylesheets/style.css')
+          body
+            header
+               h1 My Site
+             .container
+                .main-content
+                  block content
+                .sidebar
+                  block sidebar
+             footer
+                p Running on node with Express, Jade and Stylus
+        
+    p.
+      Next we want to fill in these blocks with some content. Create a file named 'index.jade' inside 'views'. Populate it with this:
+    pre.
+          extend layout
+          block content
+            p
+              | Vivamus hendrerit arcu sed erat molestie
+              | vehicula. Sed auctor neque eu tellus
+              | rhoncus ut eleifend nibh porttitor. Ut in.
+            p
+              | Donec congue lacinia dui, a porttitor
+              | lectus condimentum laoreet. Nunc eu
+              | ullamcorper orci. Quisque eget odio ac
+              | lectus vestibulum faucibus eget in metus.
+              | In pellentesque faucibus vestibulum. Nulla
+              | at nulla justo, eget luctus tortor.
+          block sidebar
+           .widget
+            h1 Widget
+            p
+              | Sed auctor neque eu tellus rhoncus ut
+              | eleifend nibh porttitor. Ut in nulla enim.
+            p
+              | Vivamus hendrerit arcu sed erat molestie
+              | vehicula.
+    p.
+      Instead of 
+          
+    pre.
+        p
+         | Vivamus hendrerit arcu sed erat molestie
+         | vehicula 
+    p. 
+      we can use 
+    br
+    pre.
+        p.
+          Vivamus hendrerit arcu sed erat molestie
+          vehicula
+    br
+    p.
+      To know more about JADE Templating go this way -> <a href="http://naltatis.github.io/jade-syntax-docs/">jade templating</a>
